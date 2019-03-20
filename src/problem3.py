@@ -190,7 +190,7 @@ def problem3a(a, b):
       -- problem3a(8, 2) = 11 + 23 + 29 + 41 + 43 + 47 + 61  (which is 255)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -199,6 +199,12 @@ def problem3a(a, b):
     #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
     ###########################################################################
 
+    total = 0
+
+    for k in range(a,a**b):
+        if is_prime(k) == True & is_prime(sum_of_digits(k)) == True:
+            total = total + k
+    return total
 
 def run_test_problem3b():
     """ Tests the   problem3b   function. """
