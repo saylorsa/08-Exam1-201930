@@ -118,9 +118,27 @@ def problem1(circle, rectangle, color, length, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    circent = circle.center
+    reccent = rectangle.get_center()
+
+    line = rg.Line(circent, reccent)
+    line.color = color
+    line.thickness = circle.outline_thickness
+    line.attach_to(window)
+    mid = line.get_midpoint()
+
+    vert = rg.Line(rg.Point(mid.x, mid.y + (length/2)), rg.Point(mid.x, mid.y - (length/2)))
+    vert.color = circle.fill_color
+    vert.thickness = circle.outline_thickness + rectangle.outline_thickness
+    vert.attach_to(window)
+
+    window.render()
 
 
 # -----------------------------------------------------------------------------
