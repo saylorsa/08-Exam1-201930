@@ -202,7 +202,7 @@ def problem3a(a, b):
     total = 0
 
     for k in range(a,a**b):
-        if is_prime(k) == True & is_prime(sum_of_digits(k)) == True:
+        if is_prime(k) is True & is_prime(sum_of_digits(k)) is True:
             total = total + k
     return total
 
@@ -283,7 +283,7 @@ def problem3b(m, x):
            which is approximately 12.020144157845959.
      """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
     ###########################################################################
@@ -292,6 +292,16 @@ def problem3b(m, x):
     #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
     ###########################################################################
 
+    count = 0
+
+    for k in range(m ** 2, m**4):
+        if is_prime(k) is True & is_prime(sum_of_digits(k)) is True:
+            count = count + k
+
+    if count >= x:
+        return True
+    else:
+        return False
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
