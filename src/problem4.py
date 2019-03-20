@@ -80,11 +80,22 @@ def problem4(point1, point2, n, window):
       :type window:  rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # IMPORTANT: For PARTIAL CREDIT, ignore the colors.
     # -------------------------------------------------------------------------
 
+    point1.attach_to(window)
+    point2.attach_to(window)
+
+    for k in range((2*n)):
+        point = rg.Point(point1.x + (k+1)*((point2.x-point1.x)/((2*n)+1)),point1.y + (k+1)*((point2.y-point1.y)/((2*n)+1)))
+        point.attach_to(window)
+        if k+1 <= n:
+            point.fill_color = point2.fill_color
+        else:
+            point.fill_color = point1.fill_color
+    window.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
